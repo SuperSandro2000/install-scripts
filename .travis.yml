@@ -1,0 +1,8 @@
+dist: xenial
+language: bash
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - bash -c 'shopt -s globstar; shellcheck **/*.sh'
