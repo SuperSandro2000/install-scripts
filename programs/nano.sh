@@ -18,6 +18,3 @@ cd "nano-$nano"
 make
 sudo make install
 cd "$HOME"
-
-# install nanorc "Improved Nano Syntax Highlighting Files"
-wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
