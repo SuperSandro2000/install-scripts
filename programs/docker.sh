@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-if [[ $1 == "" ]]; then
+if [[ ${1:-} == "" ]]; then
   ADD_USER="$USER"
 else
   ADD_USER="$1"
