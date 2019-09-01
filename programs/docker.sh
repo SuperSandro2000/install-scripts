@@ -24,7 +24,7 @@ else
 fi
 
 apt-get install -qy python3-setuptools python3-pip
-pip3 install -U docker-compose
+pip3 install -U docker-compose wheel
 groupadd docker -f
 # Adding a user to the docker group is equivalent to setting sudo to NOPASSWD.
 # Use at your own risk. Not recommended for production. Left here as a note.
