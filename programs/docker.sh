@@ -15,9 +15,9 @@ fi
 apt-get remove -qy docker docker-engine docker.io containerd runc --purge
 if [[ $(lsb_release -cs) == disco ]]; then
   echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable test" >/etc/apt/sources.list.d/docker.list
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
   apt-get update
   apt-get install -qy apt-transport-https ca-certificates curl
-  curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | apt-key add -q -
   apt-get install -qy --no-install-recommends docker-ce
 else
   curl -sSL https://get.docker.com | sh
