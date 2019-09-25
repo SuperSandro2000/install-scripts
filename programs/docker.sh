@@ -23,8 +23,9 @@ else
   curl -sSL https://get.docker.com | sh
 fi
 
-apt-get install -qy python3-setuptools python3-pip
+apt-get install -qy curl python3-setuptools python3-pip
 pip3 install -U docker-compose wheel
+curl -L https://raw.githubusercontent.com/docker/compose/1.24.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 groupadd docker -f
 # Adding a user to the docker group is equivalent to setting sudo to NOPASSWD.
 # Use at your own risk. Not recommended for production. Left here as a note.
