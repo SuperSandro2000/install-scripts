@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-nano=4.4
+nano=4.5
 
 sudo apt-get install -qy build-essential gpg libncursesw5-dev tar wget
 mkdir -p "$HOME/src" && cd "$HOME/src/"
