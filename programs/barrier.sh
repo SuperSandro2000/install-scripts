@@ -8,4 +8,4 @@ git clone git@github.com:debauchee/barrier.git || (cd barrier && git fetch origi
 cd barrier || exit 1
 ./clean_build.sh
 mkdir -p "$HOME/.local/bin/"
-cp barrier/build/bin/barrier "$HOME/.local/bin/"
+cp barrier/build/bin/barrier{,c,s} "$HOME/.local/bin/"
