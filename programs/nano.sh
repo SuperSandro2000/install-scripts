@@ -7,7 +7,7 @@ sudo apt-get install -qy build-essential gpg libncursesw5-dev tar wget
 mkdir -p "$HOME/src" && cd "$HOME/src/"
 wget "https://www.nano-editor.org/dist/v4/nano-$nano.tar.xz"
 wget "https://www.nano-editor.org/dist/v4/nano-$nano.tar.xz.asc"
-gpg --recv-keys BFD009061E535052AD0DF2150D28D4D2A0ACE884
+gpg --recv-keys 0x0D28D4D2A0ACE884
 gpg --verify "nano-$nano.tar.xz.asc" "nano-$nano.tar.xz"
 tar xf "nano-$nano.tar.xz"
 rm -r "nano-$nano.tar.xz" "nano-$nano.tar.xz.asc"
