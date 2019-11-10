@@ -12,6 +12,8 @@ if [[ $(whoami) != root ]]; then
   exit
 fi
 
+docker_compose=1.24.1
+
 apt-get remove -qy docker docker-engine docker.io containerd runc --purge
 if [[ $(lsb_release -cs) == disco ]]; then
   echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable test" >/etc/apt/sources.list.d/docker.list
@@ -25,7 +27,7 @@ fi
 
 apt-get install -qy curl python3-setuptools python3-pip
 pip3 install -U docker-compose wheel
-curl -L https://raw.githubusercontent.com/docker/compose/1.24.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+curl -L https://raw.githubusercontent.com/docker/compose/$docker_compose/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 groupadd docker -f
 # Adding a user to the docker group is equivalent to setting sudo to NOPASSWD.
 # Use at your own risk. Not recommended for production. Left here as a note.

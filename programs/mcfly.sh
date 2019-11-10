@@ -1,12 +1,13 @@
 #!/bin/bash
 set -eoux pipefail
 
-mcfly=0.3.4
+version=0.3.5
+file=mcfly-v$version-x86_64-unknown-linux-gnu.tar.gz
 
 sudo apt-get install -qy tar wget
-wget "https://github.com/cantino/mcfly/releases/download/v$mcfly/mcfly-v${mcfly}-x86_64-unknown-linux-gnu.tar.gz"
-tar xf "mcfly-v$mcfly-x86_64-unknown-linux-gnu.tar.gz"
-rm "mcfly-v$mcfly-x86_64-unknown-linux-gnu.tar.gz"
+wget "https://github.com/cantino/mcfly/releases/download/v$version/$file"
+tar xf "$file"
+rm "$file"
 mv mcfly "$HOME/.local/bin/"
 mv mcfly.bash "$HOME/.local/"
 
