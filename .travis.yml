@@ -5,4 +5,4 @@ jobs:
   include:
     - stage: test
       script:
-        - bash -c 'shopt -s globstar; shellcheck **/*.sh'
+        - bash -c 'shopt -s globstar; shellcheck -x -- **/*.sh'

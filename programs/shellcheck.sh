@@ -3,9 +3,10 @@ set -eoux pipefail
 
 file="shellcheck-stable.linux.x86_64.tar.xz"
 
-sudo apt-get install -qy tar wget
+trap 'rm $file' EXIT
+
+sudo apt-get install -qy tar xz-utils wget
 wget https://storage.googleapis.com/shellcheck/$file
 tar -xf $file
-rm $file
 sudo mv shellcheck-stable/shellcheck /usr/bin/shellcheck
 rm -r shellcheck-stable

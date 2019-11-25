@@ -1,8 +1,10 @@
 #!/bin/bash
 set -eoux pipefail
 
-sudo apt-get install -qy git
+trap "rm -r /tmp/gotop/" EXIT
+
+sudo apt-get install -qy curl git
 git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop
 /tmp/gotop/scripts/download.sh
-rm -r /tmp/gotop/
+mkdir -p "$HOME/.local/bin/"
 mv gotop "$HOME/.local/bin/"
