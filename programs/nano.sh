@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-version=4.6
+version=4.7
 file=nano-$version.tar.xz
 
 sudo apt-get install -qy build-essential gpg libncursesw5-dev tar wget
