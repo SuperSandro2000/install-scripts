@@ -8,7 +8,7 @@ sudo apt-get install -qy build-essential gpg libncursesw5-dev tar wget
 mkdir -p "$HOME/src" && cd "$HOME/src/"
 wget "https://www.nano-editor.org/dist/v4/$file"
 wget "https://www.nano-editor.org/dist/v4/$file.asc"
-gpg --recv-keys 0x0D28D4D2A0ACE884
+gpg --keyserver keys.gnupg.net --recv-keys 0x0D28D4D2A0ACE884
 gpg --verify "$file.asc" "$file"
 tar xf "$file"
 rm -r "$file" "$file.asc"
