@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-version=2.6.4
+version=3.0.1
 file=shfmt_v${version}_linux_amd64
 
 sudo apt-get install --no-install-recommends -qy ca-certificates wget

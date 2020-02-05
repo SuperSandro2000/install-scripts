@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-version=1.1.0
+version=1.2.1
 file=git-interactive-rebase-tool_${version}_amd64.deb
 
 trap 'rm $file' EXIT

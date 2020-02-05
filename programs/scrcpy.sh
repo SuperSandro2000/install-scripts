@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-scrcpy=1.11
+scrcpy=1.12.1
 
 # build deps
 sudo apt-get install --no-install-recommends -qy ca-certificates gcc git libavformat-dev libsdl2-dev meson pkg-config wget

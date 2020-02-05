@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-version=0.3.5
+version=0.3.6
 file=mcfly-v$version-x86_64-unknown-linux-gnu.tar.gz
 
 trap 'rm -f $file' EXIT

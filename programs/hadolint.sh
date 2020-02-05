@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-version=1.17.3
+version=1.17.5
 
 sudo apt-get install --no-install-recommends -qy wget
 mkdir -p "$HOME/.local/bin"

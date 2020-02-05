@@ -12,7 +12,7 @@ if [[ $(whoami) != root ]]; then
   exit
 fi
 
-docker_compose=1.24.1
+docker_compose=1.25.4
 
 # purge old docker packages, recommended by docker-ce install guide
 apt-get remove -qy --purge docker docker-engine docker.io containerd runc || true
