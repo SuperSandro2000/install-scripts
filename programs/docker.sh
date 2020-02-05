@@ -17,7 +17,7 @@ docker_compose=1.24.1
 # purge old docker packages, recommended by docker-ce install guide
 apt-get remove -qy --purge docker docker-engine docker.io containerd runc || true
 
-apt-get install --no-install-recommends -qy lsb-release wget
+apt-get install --no-install-recommends -qy ca-certificates lsb-release wget
 
 codename=$(lsb_release -cs)
 
@@ -32,8 +32,8 @@ else
   wget https://get.docker.com -O- | sh
 fi
 
-apt-get install -qy python3-setuptools python3-pip
-pip3 install -U docker-compose wheel
+apt-get install --no-install-recommends -qy python3-pip python3-setuptools python3-wheel
+pip3 install -U docker-compose
 mkdir -p /etc/bash_completion.d
 wget https://raw.githubusercontent.com/docker/compose/$docker_compose/contrib/completion/bash/docker-compose -O /etc/bash_completion.d/docker-compose
 groupadd -f docker
