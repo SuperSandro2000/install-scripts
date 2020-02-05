@@ -3,8 +3,19 @@ set -eoux pipefail
 
 _git() {
   dir=$(echo "$1" | \grep -oP '\w+(?=.git)')
-  git clone "$1" || (cd "$dir" && git fetch origin && git reset --hard origin/master)
+  if [[ -n $2 ]]; then
+    git clone "$1" || _checkout "$dir" "$2"
+  else
+    git clone --depth=1 --branch "$2" "$1" || _checkout "$dir" "$2"
+  fi
   cd "$dir"
+}
+
+_checkout() {
+  cd "$1"
+  git fetch origin
+  git reset --hard "$2"
+  cd ..
 }
 
 _make() {
@@ -23,18 +34,15 @@ sudo apt-get install --no-install-recommends -qy ca-certificates cmake g++ git m
 mkdir -p "$HOME/src" && cd "$HOME/src/"
 
 # libbaseencode
-_git https://github.com/paolostivanin/libbaseencode.git
-git checkout v$libbaseencode
+_git https://github.com/paolostivanin/libbaseencode.git v$libbaseencode
 _make
 
 # libcotp
-sudo apt-get install -qy libgcrypt20-dev
-_git https://github.com/paolostivanin/libcotp.git
-git checkout v$libctop
+sudo apt-get install --no-install-recommends -qy libgcrypt20-dev
+_git https://github.com/paolostivanin/libcotp.git v$libctop
 _make
 
 # otpclient
-sudo apt-get install -qy libgcrypt20-dev libjansson-dev libzbar-dev libzip-dev
-_git https://github.com/paolostivanin/OTPClient.git
-git checkout v$otpclient
+sudo apt-get install --no-install-recommends -qy libgcrypt20-dev libgtk-3-dev libjansson-dev libzbar-dev libzip-dev
+_git https://github.com/paolostivanin/OTPClient.git v$otpclient
 _make
