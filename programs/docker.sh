@@ -15,7 +15,7 @@ fi
 docker_compose=1.24.1
 
 # purge old docker packages, recommended by docker-ce install guide
-apt-get remove -qy --purge docker docker-engine docker.io containerd runc
+apt-get remove -qy --purge docker docker-engine docker.io containerd runc || true
 
 apt-get install -qy wget
 
