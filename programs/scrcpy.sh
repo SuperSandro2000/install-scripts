@@ -6,7 +6,8 @@ scrcpy=1.11
 # runtime deps
 sudo apt-get install -qy ffmpeg libsdl2-2.0-0
 # build deps
-sudo apt-get install -qy build-essential fastjar git libavformat-dev libsdl2-dev meson ninja-build pkg-config wget
+sudo apt-get install --no-install-recommends -qy ca-certificates gcc git libavformat-dev libsdl2-dev meson pkg-config wget
+
 mkdir -p "$HOME/src" && cd "$HOME/src/"
 git clone https://github.com/Genymobile/scrcpy.git || (cd scrcpy && git fetch origin && git reset --hard origin/master)
 cd scrcpy
@@ -17,3 +18,6 @@ meson x --buildtype release --strip -Db_lto=true "-Dprebuilt_server=scrcpy-serve
 cd x
 ninja
 sudo ninja install
+
+# runtime deps
+sudo apt-get install --no-install-recommends -qy adb

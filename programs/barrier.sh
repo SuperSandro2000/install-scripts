@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-sudo apt-get install -qy cmake git libavahi-compat-libdnssd-dev libcurl4-openssl-dev libssl-dev libxtst-dev qtbase5-dev
+sudo apt-get install --no-install-recommends -qy cmake g++ git libavahi-compat-libdnssd-dev libcurl4-openssl-dev libssl-dev libxtst-dev qtbase5-dev
 mkdir -p "$HOME/src/"
 cd "$HOME/src/"
 git clone --depth=1 https://github.com/debauchee/barrier.git || (cd barrier && git fetch origin && git reset --hard origin/master)

@@ -6,7 +6,7 @@ file=mcfly-v$version-x86_64-unknown-linux-gnu.tar.gz
 
 trap 'rm -f $file' EXIT
 
-sudo apt-get install -qy tar wget
+sudo apt-get install --no-install-recommends -qy tar wget
 wget "https://github.com/cantino/mcfly/releases/download/v$version/$file"
 tar xf "$file"
 mkdir -p "$HOME/.local/bin/"

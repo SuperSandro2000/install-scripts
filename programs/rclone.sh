@@ -1,5 +1,5 @@
 #!/bin/bash
 set -eoux pipefail
 
-sudo apt-get install -qy unzip wget
-wget https://rclone.org/install.sh -O- | sudo bash
+sudo apt-get install --no-install-recommends -qy ca-certificates curl unzip
+curl https://rclone.org/install.sh -o- | sudo bash

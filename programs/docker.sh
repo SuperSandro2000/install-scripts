@@ -27,7 +27,7 @@ if [[ $VERSION_CODENAME == eoan ]]; then
   apt-get install -qy apt-transport-https gnupg
   wget -q https://download.docker.com/linux/ubuntu/gpg -O- | apt-key add -
   apt-get update
-  apt-get install -qy docker-ce
+  apt-get install --no-install-recommends -qy docker-ce
 else
   wget https://get.docker.com -O- | sh
 fi

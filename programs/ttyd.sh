@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoux pipefail
 
-sudo apt-get install -qy build-essential cmake git libjson-c-dev libuv1-dev libwebsockets-dev pkg-config
+sudo apt-get install --no-install-recommends -qy ca-certificates cmake g++ git make pkg-config libjson-c-dev libwebsockets-dev
 mkdir -p "$HOME/src/"
 cd "$HOME/src/"
 git clone https://github.com/tsl0922/ttyd.git || (cd ttyd && git fetch origin && git reset --hard origin/master)

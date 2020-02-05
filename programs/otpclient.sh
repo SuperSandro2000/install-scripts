@@ -19,7 +19,7 @@ libbaseencode=1.0.9
 libctop=1.2.2
 otpclient=2.0.1
 
-sudo apt-get install -qy build-essential cmake git pkg-config
+sudo apt-get install --no-install-recommends -qy ca-certificates cmake g++ git make pkg-config
 mkdir -p "$HOME/src" && cd "$HOME/src/"
 
 # libbaseencode
