@@ -17,14 +17,14 @@ docker_compose=1.24.1
 # purge old docker packages, recommended by docker-ce install guide
 apt-get remove -qy --purge docker docker-engine docker.io containerd runc || true
 
-apt-get install -qy wget
+apt-get install --no-install-recommends -qy lsb-release wget
 
-source /etc/os-release
+codename=$(lsb_release -cs)
 
 # there is no dist for eoan yet, so we fall back to disco
-if [[ $VERSION_CODENAME == eoan ]]; then
-  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable test" >/etc/apt/sources.list.d/docker.list
-  apt-get install -qy apt-transport-https gnupg
+if [[ $codename == eoan || $codename == focal || $codename == bullseye ]]; then
+  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable test" >/etc/apt/sources.list.d/docker.list
+  apt-get install --no-install-recommends -qy apt-transport-https gnupg
   wget -q https://download.docker.com/linux/ubuntu/gpg -O- | apt-key add -
   apt-get update
   apt-get install --no-install-recommends -qy docker-ce
