@@ -4,7 +4,13 @@ set -eoux pipefail
 version=4.7
 file=nano-$version.tar.xz
 
-sudo apt-get install --no-install-recommends -qy gcc gpg libncurses-dev make tar wget xz-utils
+if [[ $(id -u) != 0 ]]; then
+  sudo=sudo
+else
+  sudo=
+fi
+
+$sudo apt-get install --no-install-recommends -qy gcc gpg libncurses-dev make tar wget xz-utils
 mkdir -p "$HOME/src" && cd "$HOME/src/"
 wget "https://www.nano-editor.org/dist/v4/$file"
 wget "https://www.nano-editor.org/dist/v4/$file.asc"
@@ -17,5 +23,5 @@ cd "nano-$version"
 # ./configure --prefix="$HOME/.local/"
 ./configure
 make
-sudo make install
+$sudo make install
 cd "$HOME"

@@ -1,7 +1,13 @@
 #!/bin/bash
 set -eoux pipefail
 
-sudo apt-get install --no-install-recommends -qy autoconf gcc git libpcap-dev make
+if [[ $(id -u) != 0 ]]; then
+  sudo=sudo
+else
+  sudo=
+fi
+
+$sudo apt-get install --no-install-recommends -qy autoconf gcc git libpcap-dev make
 
 mkdir -p "$HOME/src/"
 cd "$HOME/src/"
@@ -12,4 +18,4 @@ autoreconf --install
 ./configure
 make
 make check
-sudo make install
+$sudo make install
