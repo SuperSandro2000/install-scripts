@@ -21,8 +21,7 @@ apt-get install --no-install-recommends -qy ca-certificates lsb-release wget
 
 codename=$(lsb_release -cs)
 
-# there is no dist for eoan yet, so we fall back to disco
-if [[ $codename == eoan || $codename == focal || $codename == bullseye ]]; then
+if [[ $codename == focal || $codename == bullseye ]]; then
   echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable test" >/etc/apt/sources.list.d/docker.list
   apt-get install --no-install-recommends -qy apt-transport-https gnupg
   wget -q https://download.docker.com/linux/ubuntu/gpg -O- | apt-key add -
