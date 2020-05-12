@@ -8,7 +8,11 @@ else
 fi
 
 if [[ $(whoami) != root ]]; then
-  sudo su -s "$0" root "$ADD_USER"
+  if [[ $0 == "bash" ]]; then
+    echo "If you directly download and pipe this script you need to start the shell with sudo."
+  else
+    sudo su -s "$0" root "$ADD_USER"
+  fi
   exit
 fi
 
