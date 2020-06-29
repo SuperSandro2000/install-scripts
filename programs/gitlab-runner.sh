@@ -15,4 +15,5 @@ deb-src https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ $code_name main
 EOF
 curl -L https://packages.gitlab.com/runner/gitlab-runner/gpgkey | apt-key add -
 apt-get update
+export GITLAB_RUNNER_DISABLE_SKEL=true
 apt-get install --no-install-recommends -qy gitlab-runner
