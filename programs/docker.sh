@@ -16,8 +16,6 @@ if [[ $(whoami) != root ]]; then
   exit
 fi
 
-docker_compose=1.25.4
-
 # purge old docker packages, recommended by docker-ce install guide
 apt-get remove -qy --purge docker docker-engine docker.io containerd runc || true
 
@@ -38,7 +36,7 @@ fi
 apt-get install --no-install-recommends -qy python3-pip python3-setuptools python3-wheel
 pip3 install -U docker-compose
 mkdir -p /etc/bash_completion.d
-wget https://raw.githubusercontent.com/docker/compose/$docker_compose/contrib/completion/bash/docker-compose -O /etc/bash_completion.d/docker-compose
+wget https://raw.githubusercontent.com/docker/compose/1.27.4/contrib/completion/bash/docker-compose -O /etc/bash_completion.d/docker-compose
 groupadd -f docker
 # Adding a user to the docker group is equivalent to setting sudo to NOPASSWD.
 # Use at your own risk. Not recommended for production. Left here as a note.
