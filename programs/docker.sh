@@ -38,7 +38,7 @@ fi
 apt-get install --no-install-recommends -qy python3-cryptography python3-pip python3-setuptools python3-wheel
 pip3 install -U docker-compose
 mkdir -p /etc/bash_completion.d
-wget https://raw.githubusercontent.com/docker/compose/1.28.2/contrib/completion/bash/docker-compose -O /etc/bash_completion.d/docker-compose
+wget https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -O /etc/bash_completion.d/docker-compose
 groupadd -f docker
 # Adding a user to the docker group is equivalent to setting sudo to NOPASSWD.
 # Use at your own risk. Not recommended for production. Left here as a note.
