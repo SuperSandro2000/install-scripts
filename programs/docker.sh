@@ -21,17 +21,7 @@ apt-get remove -qy --purge docker docker-engine docker.io containerd runc || tru
 
 apt-get install --no-install-recommends -qy ca-certificates lsb-release wget
 
-codename=$(lsb_release -cs)
-
-if [[ $codename == bullseye ]]; then
-  echo "deb [arch=amd64] https://download.docker.com/linux/debian buster stable test" >/etc/apt/sources.list.d/docker.list
-  apt-get install --no-install-recommends -qy apt-transport-https gnupg
-  wget -q https://download.docker.com/linux/ubuntu/gpg -O- | apt-key add -
-  apt-get update
-  apt-get install --no-install-recommends -qy docker-ce
-else
-  wget https://get.docker.com -O- | sh
-fi
+wget https://get.docker.com -O- | sh
 
 # python3-cryptography is installed do avoid compiling it on older systems which would require rust.
 # --prefer-binary is not an option because older pips do not support it
